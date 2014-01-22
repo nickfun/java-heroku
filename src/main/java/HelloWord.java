@@ -1,3 +1,10 @@
+/**
+ * Simple Java Server example
+ * For deployment on HEROKU
+ *
+ * Nick F - 2014-01-21
+ */
+
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.*;
