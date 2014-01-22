@@ -18,7 +18,12 @@ public class HelloWorld extends HttpServlet {
         resp.getWriter().print("Hello from Java!\n");
     }
     public static void main(String[] args) throws Exception{
-        Server server = new Server(Integer.valueOf(System.getenv("PORT")));
+	Integer port = Integer.valueOf(System.getenv("PORT"));
+	int iPort = 9999;
+	System.out.println("ENV PORT:");
+	System.out.println(port);
+
+        Server server = new Server( iPort );
         ServletContextHandler context = new ServletContextHandler(ServletContextHandler.SESSIONS);
         context.setContextPath("/");
         server.setHandler(context);
