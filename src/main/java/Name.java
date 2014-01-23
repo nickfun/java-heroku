@@ -6,6 +6,15 @@ import org.eclipse.jetty.servlet.*;
 public class Name extends HttpServlet {
 
     protected void doGet( HttpServletRequest req, HttpServletResponse resp ) throws ServletException, IOException {
-	resp.getWriter().print("Hello, NAME!");
+	String name = req.getParameter("name");
+	if( name == null ) {
+	    name = "--NO NAME--";
+	}
+	resp.getWriter().print("Hello, " + name + "!");
+	
+    }
+
+    public Name() {
+	System.out.println("init: NAME()");
     }
 }
