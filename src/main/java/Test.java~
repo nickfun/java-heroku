@@ -13,10 +13,5 @@ public class Test extends HttpServlet {
 	t.setAge(12);
 	resp.getWriter().print("Obj: " + t);
     }
-
-    public Test() {
-	System.out.println("INIT: Test");
-    }
-
 }
 
