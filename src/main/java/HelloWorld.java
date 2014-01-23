@@ -27,10 +27,10 @@ public class HelloWorld extends HttpServlet {
         ServletContextHandler context = new ServletContextHandler(ServletContextHandler.SESSIONS);
         context.setContextPath("/");
         server.setHandler(context);
-        context.addServlet(new ServletHolder(new HelloWorld()),"/*");
-	context.addServlet(new ServletHolder(new Name() ),"/name");
-	context.addServlet(new ServletHolder(new Letters()),"/letters");
-	context.addServlet(new ServletHolder(new Test(), "/test"));
+        context.addServlet(new ServletHolder(new HelloWorld()), "/*");
+	context.addServlet(new ServletHolder(new Name()), "/name");
+	context.addServlet(new ServletHolder(new Letters()), "/letters");
+	context.addServlet(new ServletHolder(new Test()), "/test");
         server.start();
         server.join();
     }

@@ -5,11 +5,11 @@ import org.eclipse.jetty.servlet.*;
 
 public class Test extends HttpServlet {
 
-    protected void doGet( HttpServletRequest req, HttpServletResponse res )
+    protected void doGet( HttpServletRequest req, HttpServletResponse resp )
 	throws ServletException, IOException
     {
 	Obj t = new Obj();
-	t.setName("Nick"):
+	t.setName("Nick");
 	t.setAge(12);
 	resp.getWriter().print("Obj: " + t);
     }
