@@ -29,7 +29,7 @@ public class HelloWorld extends HttpServlet {
         server.setHandler(context);
         context.addServlet(new ServletHolder(new HelloWorld()),"/*");
 	context.addServlet(new ServletHolder(new Name() ),"/name");
-	context.addServlet(new ServietHolder(new Letters()),"/letters");
+	context.addServlet(new ServletHolder(new Letters()),"/letters");
         server.start();
         server.join();
     }

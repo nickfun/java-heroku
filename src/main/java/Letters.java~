@@ -10,14 +10,11 @@ public class Letters extends HttpServlet {
 	String output = "No Input :-( <br> /letters?letters=hello";
 	if( letters != null ) {
 	    output = "";
-	    char c;
-	    int i;
-	    for( i=0; i<letters.length(); i++ ) {
-		c = letters.charAt(i);
+	    for( char c in letters ) {
 		output += " :letter" + c;
 	    }
 	}
-	resp.getWriter().print(output);
+	resp.getWriter.print(output);
     }
 
     public Letters() {
