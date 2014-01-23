@@ -3,7 +3,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.*;
 import org.eclipse.jetty.servlet.*;
 
-import com.google.code.gson.*
+import com.google.gson.*;
 
 public class Test extends HttpServlet {
 
