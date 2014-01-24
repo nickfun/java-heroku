@@ -14,7 +14,7 @@ public class Test extends HttpServlet {
 	String name = this.getParam("name","Default Name", req);
 	String age = getParam("age","-99999",req);
 	t.setName(name);
-	t.setAge(12);
+	t.setAge(Integer.parseInt(age));
        	//resp.getWriter().print("Obj: " + t);
 	resp.setHeader("Content-Type", "application/json");
 	Gson jsonWriter = new Gson();
