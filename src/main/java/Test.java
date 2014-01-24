@@ -19,10 +19,10 @@ public class Test extends HttpServlet {
 	resp.getWriter().print(  jsonWriter.toJson(t) );
     }
 
-    private String getParam( String name, String default, HttpServletRequest req ) {
+    private String getParam( String name, String fallback, HttpServletRequest req ) {
 	String result = req.getParameter(name);
 	if( result == null ) {
-	    return default;
+	    return fallback;
 	}
 	return result;
     }
