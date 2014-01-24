@@ -11,7 +11,9 @@ public class Test extends HttpServlet {
 	throws ServletException, IOException
     {
 	Obj t = new Obj();
-	t.setName("Nick");
+	String name = this.getParam("name","Default Name", req);
+	String age = getParam("age","-99999",req);
+	t.setName(name);
 	t.setAge(12);
        	//resp.getWriter().print("Obj: " + t);
 	resp.setHeader("Content-Type", "application/json");
