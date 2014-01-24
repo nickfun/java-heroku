@@ -19,6 +19,14 @@ public class Test extends HttpServlet {
 	resp.getWriter().print(  jsonWriter.toJson(t) );
     }
 
+    private String getParam( String name, String default, HttpServletRequest req ) {
+	String result = req.getParameter(name);
+	if( result == null ) {
+	    return default;
+	}
+	return result;
+    }
+
     public Test() {
 	System.out.println("INIT: Test");
     }
