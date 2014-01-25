@@ -18,7 +18,6 @@ public class Letters extends HttpServlet {
 	    }
 	}
 	resp.setHeader("Content-Type","text/html");
-	System.out.println("text/html");
 	resp.getWriter().print(output);
     }
 
