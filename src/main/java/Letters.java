@@ -7,7 +7,7 @@ public class Letters extends HttpServlet {
 
     protected void doGet( HttpServletRequest req, HttpServletResponse resp ) throws ServletException, IOException {
 	String letters = req.getParameter("letters");
-	String output = "No Input :-( <br> /letters?letters=hello";
+	String output = "No Input :-( <br> /letters?letters=hello or anything else";
 	if( letters != null ) {
 	    output = "";
 	    char c;
@@ -17,6 +17,8 @@ public class Letters extends HttpServlet {
 		output += " :letter" + c;
 	    }
 	}
+	resp.setHeader("Content-Type","text/html");
+	System.out.println("text/html");
 	resp.getWriter().print(output);
     }
 
