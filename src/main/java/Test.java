@@ -14,11 +14,16 @@ public class Test extends HttpServlet {
 	String name = this.getParam("name","Default Name", req);
 	String age = getParam("age","-99999",req);
 	t.setName(name);
-	t.setAge(Integer.parseInt(age));
+	try {
+	    t.setAge(Integer.parseInt(age));
+	} catch( Exception e ) {
+	    t.setAge(-9999);
+	}
        	//resp.getWriter().print("Obj: " + t);
 	resp.setHeader("Content-Type", "application/json");
 	Gson jsonWriter = new Gson();
 	resp.getWriter().print(  jsonWriter.toJson(t) );
+	System.out.println("Writing: " + name + " / " + age);
     }
 
     private String getParam( String name, String fallback, HttpServletRequest req ) {

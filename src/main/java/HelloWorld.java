@@ -20,8 +20,9 @@ public class HelloWorld extends HttpServlet {
     public static void main(String[] args) throws Exception{
         int port = Integer.parseInt(System.getenv("PORT"));
 	int iPort = 9999;
-	System.out.println("ENV PORT:");
-	System.out.println(port);
+
+	System.out.println("ENV PORT:" + port );
+	//System.out.println(port);
 
         Server server = new Server( port );
         ServletContextHandler context = new ServletContextHandler(ServletContextHandler.SESSIONS);

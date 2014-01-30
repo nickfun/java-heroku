@@ -10,6 +10,7 @@ class Obj {
     }
 
     public String getName() {
+	//System.out.println("Got name!");
 	return name;
     }
 
