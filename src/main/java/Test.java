@@ -17,6 +17,8 @@ public class Test extends HttpServlet {
 	try {
 	    t.setAge(Integer.parseInt(age));
 	} catch( Exception e ) {
+	    System.out.println("Age was " + age + " but it cant be a number");
+	    age = "-9999";
 	    t.setAge(-9999);
 	}
        	//resp.getWriter().print("Obj: " + t);
