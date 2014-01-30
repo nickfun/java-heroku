@@ -9,6 +9,7 @@ public class Letters extends HttpServlet {
 	String letters = req.getParameter("letters");
 	String output = "No Input :-( <br> /letters?letters=hello or anything else";
 	if( letters != null ) {
+	    letters = letters.toLowerCase();
 	    output = "";
 	    char c;
 	    int i;
