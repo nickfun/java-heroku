@@ -12,4 +12,4 @@ The source can be compied with the command `mvn package`. Export a port number t
     $ export PORT=8080
     $ foreman start
 
-At least, that is what works for me.
+Foreman comes with the Heroku utility belt. If you don't have heroku, then read the `Procfile` and you should be able to figure out what to do.
