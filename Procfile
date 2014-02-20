@@ -1,3 +1,4 @@
 # `foreman start`
 
-web: java -cp target/classes:target/dependency/* MyServer
+web_a: java -cp target/classes:target/dependency/* MyServer
+web_b: java -cp target/classes:target/dependency/* MyServer
