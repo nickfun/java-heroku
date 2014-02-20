@@ -25,7 +25,7 @@ public class Test extends HttpServlet {
 	resp.setHeader("Content-Type", "application/json");
 	Gson jsonWriter = new Gson();
 	resp.getWriter().print(  jsonWriter.toJson(t) );
-	System.out.println("Writing: " + name + " / " + age);
+	System.out.println("Test: wrote " + name + " / " + age);
     }
 
     private String getParam( String name, String fallback, HttpServletRequest req ) {

@@ -11,7 +11,7 @@ public class Name extends HttpServlet {
 	    name = "--NO NAME--";
 	}
 	resp.getWriter().print("Hello, " + name + "!");
-	
+	System.out.println("Name: wrote " + name);
     }
 
     public Name() {
