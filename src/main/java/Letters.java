@@ -20,6 +20,7 @@ public class Letters extends HttpServlet {
 	}
 	resp.setHeader("Content-Type","text/html");
 	resp.getWriter().print(output);
+	System.out.println("letters: wrote " + letters);
     }
 
     public Letters() {
