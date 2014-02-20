@@ -1,1 +1,3 @@
-web: java -cp target/classes:target/dependency/* HelloWorld
+# `foreman start`
+
+web: java -cp target/classes:target/dependency/* MyServer
