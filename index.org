@@ -1,5 +1,5 @@
 #+TITLE: Java/Heroku
-#+STYLE: <link ref="stylesheet" href="http://nick.gs/orgstyle.css">
+#+STYLE: <link rel="stylesheet" type="text/css" href="http://nick.gs/orgstyle.css">
 #+OPTIONS: toc:nil
 
 * Java/Heroku
