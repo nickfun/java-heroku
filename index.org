@@ -1,0 +1,16 @@
+#+TITLE: Java/Heroku
+#+STYLE: <link ref="stylesheet" href="http://nick.gs/orgstyle.css">
+#+OPTIONS: toc:nil
+
+* Java/Heroku
+
+This project is a testbed to explore writing Java Webapps and hosting them on Heroku.
+
+[[http://aqueous-refuge-9456.herokuapp.com/][It is currently hosted on Heroku]], but it's on the free plan. That means the first request might take a while
+as they will put my app to sleep if it gets no traffic for a while.
+
+* Tech
+
+I started by following the Heroku Java quickstart guide. That explains how to write a simple Java
+application that uses Jetty to handle http traffic. I then wrote a few servlets to experiment with.
+The whole thing is built and managed by Maven. It's been great so far!
