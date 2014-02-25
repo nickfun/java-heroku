@@ -13,3 +13,7 @@ The source can be compied with the command `mvn package`. Export a port number t
     $ foreman start
 
 Foreman comes with the Heroku utility belt. If you don't have heroku, then read the `Procfile` and you should be able to figure out what to do.
+
+## Other Notes
+
+This project has a github page, [http://nickfun.github.io/java-heroku/](Check it out).
