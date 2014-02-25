@@ -9,6 +9,18 @@ This project is a testbed to explore writing Java Webapps and hosting them on He
 [[http://aqueous-refuge-9456.herokuapp.com/][It is currently hosted on Heroku]], but it's on the free plan. That means the first request might take a while
 as they will put my app to sleep if it gets no traffic for a while.
 
+* Endpoints
+- /letters
+- /letters?letters=word
+  Spells out a word, putting a : in front of every character. Used for forum emoticons
+- /test
+- /test?name=xxx&age=xxx
+  dumps a json object, with correct headers!
+- /name
+- /name?name=xxx
+  print a greeting. Very "Hello World".
+- * wildcard
+  another "hello world" endpoint
 * Tech
 
 I started by following the Heroku Java quickstart guide. That explains how to write a simple Java
