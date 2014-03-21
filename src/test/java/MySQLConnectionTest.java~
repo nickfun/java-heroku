@@ -11,11 +11,11 @@ import junit.framework.TestCase;
 public class MySQLConnectionTest extends TestCase {
  
     public void testConnect() {
-	String dbUrl = "jdbc:mysql://" + System.getenv('DB_HOST') + "/" + System.getenv('DB_NAME');
+	String dbUrl = "jdbc:mysql://" + System.getenv("DB_HOST") + "/" + System.getenv("DB_NAME");
 	String dbClass = "com.mysql.jdbc.Driver";
 	String query = "SELECT id, name, company FROM systems ORDER BY company, name;";
-	String username = System.getenv('DB_USER');
-	String password = System.getenv('DB_PASS');
+	String username = System.getenv("DB_USER");
+	String password = System.getenv("DB_PASS");
 	try {
 	    
 	    Class.forName(dbClass);
