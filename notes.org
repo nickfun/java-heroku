@@ -1,0 +1,14 @@
+* Java-Heroku
+** Goals
+- simple playground for learning java webapps
+- keep it simple, no frameworks, raw java
+- learn about importing libraries using Maven
+- avoid IDEs for now, just using Emacs over SSH
+
+** In Progress
+- connect to database, run a query, return formatted results
+- JSON output
+- A simple backend like my `games` PHP app
+- How do I handle connections?
+- I need to add a DB to my heroku account or I cant deploy it again
+- determine if it is running on heroku & not connect to database?
