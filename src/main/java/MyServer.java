@@ -29,6 +29,7 @@ public class MyServer extends HttpServlet {
 	context.addServlet(new ServletHolder(new Name()), "/name");
 	context.addServlet(new ServletHolder(new Letters()), "/letters");
 	context.addServlet(new ServletHolder(new Test()), "/test");
+	context.addServlet(new ServletHolder(new SystemList()), "/systems");
         server.start();
         server.join();
     }

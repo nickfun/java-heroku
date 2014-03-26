@@ -10,18 +10,22 @@ import org.eclipse.jetty.servlet.*;
 
 public class SystemList extends HttpServlet {
 
-    private ArrayList<String> doQuery() {
+    private ArrayList<String> doQuery() throws ClassNotFoundException, SQLException {
 	String dbUrl = "jdbc:mysql://"+System.getenv("DB_HOST")+"/"+System.getenv("DB_NAME");
 	String dbClass = "com.mysql.jdbc.Driver";
 	String query = "select * from systems order by company, name;";
 	
 	Class.forName(dbClass);
-	Connection conn = DriverManager.getConnect(dbUrl, System.getenv("DB_USER"), System.getenv("DB_PASS"));
+	Connection conn = DriverManager.getConnection(
+						   dbUrl, 
+						   System.getenv("DB_USER"), 
+						   System.getenv("DB_PASS")
+	);
 	Statement smt = conn.createStatement();
 	ResultSet sqlresults = smt.executeQuery(query);
 	ArrayList<String> systemNames = new ArrayList<String>();
 	while( sqlresults.next() ) {
-	    systemNames.push( sqlresults.getString("company") + " " + sqlresults.getString("name") );
+	    systemNames.add( sqlresults.getString("company") + " " + sqlresults.getString("name") );
 	}
 	return systemNames;
     }    
