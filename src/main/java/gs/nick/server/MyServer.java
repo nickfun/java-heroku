@@ -6,6 +6,8 @@ package gs.nick.server;
  * Nick F - 2014-01-21
  */
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.*;
 import org.eclipse.jetty.server.Server;
@@ -34,6 +36,23 @@ public class MyServer extends HttpServlet {
         context.addServlet(new ServletHolder(new SystemList()), "/systems");
         server.start();
         System.out.println("=== Server has started on port " + port);
+        System.err.println(">>> This is a test of stderr <<<");
+        
+        // register shutdown hook
+        final Thread mainThread = Thread.currentThread();
+        Runtime.getRuntime().addShutdownHook(new Thread() {
+            public void run() {
+                System.out.println("XXX APPLICATION IS ENDING XXX");
+                System.out.println("XXX APPLICATION IS ENDING XXX");
+                System.out.println("XXX APPLICATION IS ENDING XXX");
+                try {
+                    mainThread.join();
+                } catch (InterruptedException ex) {
+                    System.err.println("EXCEPTION IN ShutdownHook !!! ");
+                }
+            }
+        });
+        // done processing
         server.join();
     }
 }
