@@ -1,3 +1,4 @@
+package gs.nick.server;
 
 
 class Obj {

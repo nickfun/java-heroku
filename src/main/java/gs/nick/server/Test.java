@@ -1,3 +1,5 @@
+package gs.nick.server;
+
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.*;

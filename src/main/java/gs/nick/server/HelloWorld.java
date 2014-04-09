@@ -1,3 +1,5 @@
+package gs.nick.server;
+
 /**
  * Simple Java Server example
  * For deployment on HEROKU
