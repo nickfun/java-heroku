@@ -7,25 +7,37 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 import junit.framework.TestCase;
+import org.junit.Test;
 
 public class MySQLConnectionTest extends TestCase {
 
+    @Test
     public void testConnect() {
-        String dbUrl = "jdbc:mysql://" + System.getenv("DB_HOST") + "/" + System.getenv("DB_NAME");
+        String host,name,username,password,answer;
+        answer = "--fail--";
+        
+        // ENV
+        host = System.getenv("DB_HOST");
+        name = System.getenv("DB_NAME");
+        username = System.getenv("DB_USER");
+        password = System.getenv("DB_PASS");
+        
+        String query = "SELECT name FROM systems WHERE id=10;";
+        String dbUrl = "jdbc:mysql://" + host + "/" + name;
         String dbClass = "com.mysql.jdbc.Driver";
-        String query = "SELECT  name FROM systems ORDER BY company asc;";
-        String username = System.getenv("DB_USER");
-        String password = System.getenv("DB_PASS");
+        
         try {
 
             Class.forName(dbClass);
-            Connection connection = DriverManager.getConnection(dbUrl,
-                    username, password);
+            Connection connection = DriverManager.getConnection(
+                    dbUrl,
+                    username,
+                    password
+            );
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(query);
-            while (resultSet.next()) {
-                String systemName = resultSet.getString(1);
-                System.out.println("System name : " + systemName);
+            if (resultSet.next()) {
+                answer = resultSet.getString(1);
             }
             connection.close();
         } catch (ClassNotFoundException e) {
@@ -33,5 +45,6 @@ public class MySQLConnectionTest extends TestCase {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        assertEquals("Dreamcast", answer);
     }
 }
