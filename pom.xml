@@ -85,4 +85,5 @@
 	
         </plugins>
     </build>
+    <name>Java-Heroku</name>
 </project>
