@@ -53,8 +53,7 @@ public class SystemList extends HttpServlet {
                 resp.getWriter().println("DB FAIL");
             }
             ArrayList<String> systemNames = new ArrayList<>();
-            resp.setContentType("text/html");
-            resp.getWriter().print("Hello!");
+            resp.setContentType("application/json");
             PreparedStatement stm = conn.prepareStatement("SELECT * FROM systems;");
             ResultSet rs = stm.executeQuery();
 	    String company, name;
@@ -64,9 +63,10 @@ public class SystemList extends HttpServlet {
 		name = rs.getString("name");
 		systemNames.add( company + " " + name );
             }
-            resp.getWriter().print( systemNames.toString() + "<hr>" );
+            //resp.getWriter().print( systemNames.toString() + "<hr>" );
             Gson json = new Gson();
             resp.getWriter().print( json.toJson(systemNames) );
+	    System.out.println("/systems - I served a list of systems");
         } catch (SQLException ex) {
             Logger.getLogger(SystemList.class.getName()).log(Level.SEVERE, null, ex);
             resp.getWriter().print("DB Error");
