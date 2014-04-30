@@ -25,6 +25,8 @@ public class MyServer extends HttpServlet {
             port = Integer.parseInt(suppliedPort);
         }
         
+        System.out.println("=== Attempt to use PORT " + port);
+        
         Server server = new Server(port);
         ServletContextHandler context = new ServletContextHandler(ServletContextHandler.SESSIONS);
         context.setContextPath("/");

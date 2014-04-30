@@ -12,33 +12,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.*;
-import org.eclipse.jetty.servlet.*;
 
 public class SystemList extends HttpServlet {
-
-    private ArrayList<String> doQuery() throws ClassNotFoundException, SQLException {
-        System.out.println("SystemList::doQuery");
-        String dbUrl = "jdbc:mysql://" + System.getenv("DB_HOST") + "/" + System.getenv("DB_NAME");
-        String dbClass = "com.mysql.jdbc.Driver";
-        String query = "select * from systems order by company, name;";
-
-        Class.forName(dbClass);
-        Connection conn = DriverManager.getConnection(
-                dbUrl,
-                System.getenv("DB_USER"),
-                System.getenv("DB_PASS")
-        );
-        System.out.println("Conn is established");
-        Statement smt = conn.createStatement();
-        System.out.println("Statement created");
-        ResultSet sqlresults = smt.executeQuery(query);
-        System.out.println("SystemList, executQuery finished");
-        ArrayList<String> systemNames = new ArrayList<String>();
-        while (sqlresults.next()) {
-            systemNames.add(sqlresults.getString("company") + " " + sqlresults.getString("name"));
-        }
-        return systemNames;
-    }
 
     private Connection getConnection() {
         Connection connection = null;
@@ -82,10 +57,16 @@ public class SystemList extends HttpServlet {
             resp.getWriter().print("Hello!");
             PreparedStatement stm = conn.prepareStatement("SELECT * FROM systems;");
             ResultSet rs = stm.executeQuery();
+	    String company, name;
             while (rs.next()) {
-                systemNames.add( rs.getString("name") );
+                //systemNames.add( rs.getString("name") );
+		company = rs.getString("company");
+		name = rs.getString("name");
+		systemNames.add( company + " " + name );
             }
-            resp.getWriter().print( systemNames.toString() );
+            resp.getWriter().print( systemNames.toString() + "<hr>" );
+            Gson json = new Gson();
+            resp.getWriter().print( json.toJson(systemNames) );
         } catch (SQLException ex) {
             Logger.getLogger(SystemList.class.getName()).log(Level.SEVERE, null, ex);
             resp.getWriter().print("DB Error");
