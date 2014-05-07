@@ -12,3 +12,9 @@
 - How do I handle connections?
 - I need to add a DB to my heroku account or I cant deploy it again
 - determine if it is running on heroku & not connect to database?
+
+** Understand:
+- Does using servlets mean I am using JavaEE?
+- Is there a http processing library so I can just manage a TCP connection myself?
+- How can I make a class that handels multiple endpoints? It seems with servlets I can only define doGet("/path") per class.
+- *WHY* does foreman not shutdown my application correctly? The port does not get released when I Ctrl-C the foreman process. FRUSTRATING! It worked before, when did I upgrade?
