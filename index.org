@@ -26,3 +26,12 @@ as they will put my app to sleep if it gets no traffic for a while.
 I started by following the Heroku Java quickstart guide. That explains how to write a simple Java
 application that uses Jetty to handle http traffic. I then wrote a few servlets to experiment with.
 The whole thing is built and managed by Maven. It's been great so far!
+
+* Problems
+
+I am running into a lot of problems with `foreman`. It is not stopping the server correctly.
+Java still runs in the background and stays attached to the port. I always have to kill
+the process or be lazy and assign a new port then go back and kill a bunch of Java processes
+later.
+
+A workaround is to use `honcho` and that seems to take care of things.

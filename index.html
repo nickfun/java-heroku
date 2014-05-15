@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
                "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-lang="en" xml:lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <title>Java/Heroku</title>
 <meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1"/>
+<meta name="title" content="Java/Heroku"/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2014-02-25 04:37:14 UTC"/>
-<meta name="author" content=""/>
+<meta name="generated" content="2014-05-14T17:38-0700"/>
+<meta name="author" content="Nicholas Funnell"/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
 <style type="text/css">
@@ -21,6 +21,9 @@ lang="en" xml:lang="en">
   .target { }
   .timestamp { color: #bebebe; }
   .timestamp-kwd { color: #5f9ea0; }
+  .right  {margin-left:auto; margin-right:0px;  text-align:right;}
+  .left   {margin-left:0px;  margin-right:auto; text-align:left;}
+  .center {margin-left:auto; margin-right:auto; text-align:center;}
   p.verse { margin-left: 3% }
   pre {
 	border: 1pt solid #AEBDCC;
@@ -31,10 +34,23 @@ lang="en" xml:lang="en">
         overflow:auto;
   }
   table { border-collapse: collapse; }
-  td, th { vertical-align: top; }
+  td, th { vertical-align: top;  }
+  th.right  { text-align:center;  }
+  th.left   { text-align:center;   }
+  th.center { text-align:center; }
+  td.right  { text-align:right;  }
+  td.left   { text-align:left;   }
+  td.center { text-align:center; }
   dt { font-weight: bold; }
   div.figure { padding: 0.5em; }
   div.figure p { text-align: center; }
+  div.inlinetask {
+    padding:10px;
+    border:2px solid gray;
+    margin:10px;
+    background: #ffffcc;
+  }
+  textarea { overflow-x: auto; }
   .linenr { font-size:smaller }
   .code-highlighted {background-color:#ffff00;}
   .org-info-js_info-navigation { border-style:none; }
@@ -46,6 +62,30 @@ lang="en" xml:lang="en">
 </style>
 <link rel="stylesheet" type="text/css" href="http://nick.gs/orgstyle.css">
 <script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
 <!--/*--><![CDATA[/*><!--*/
  function CodeHighlightOn(elem, id)
  {
@@ -67,15 +107,20 @@ lang="en" xml:lang="en">
  }
 /*]]>*///-->
 </script>
+
 </head>
 <body>
-<div id="content">
 
+<div id="preamble">
+
+</div>
+
+<div id="content">
 <h1 class="title">Java/Heroku</h1>
 
 
 <div id="outline-container-1" class="outline-2">
-<h2 id="sec-1"><span class="section-number-2">1</span> Java/Heroku </h2>
+<h2 id="sec-1"><span class="section-number-2">1</span> Java/Heroku</h2>
 <div class="outline-text-2" id="text-1">
 
 
@@ -91,42 +136,36 @@ as they will put my app to sleep if it gets no traffic for a while.
 </div>
 
 <div id="outline-container-2" class="outline-2">
-<h2 id="sec-2"><span class="section-number-2">2</span> Endpoints </h2>
+<h2 id="sec-2"><span class="section-number-2">2</span> Endpoints</h2>
 <div class="outline-text-2" id="text-2">
 
 <ul>
-<li>
-/letters
+<li>/letters
 </li>
-<li>
-/letters?letters=word
-Spells out a word, putting a : in front of every character. Used for forum emoticons
+<li>/letters?letters=word
+  Spells out a word, putting a : in front of every character. Used for forum emoticons
 </li>
-<li>
-/test
+<li>/test
 </li>
-<li>
-/test?name=xxx&amp;age=xxx
-dumps a json object, with correct headers!
+<li>/test?name=xxx&amp;age=xxx
+  dumps a json object, with correct headers!
 </li>
-<li>
-/name
+<li>/name
 </li>
-<li>
-/name?name=xxx
-print a greeting. Very "Hello World".
+<li>/name?name=xxx
+  print a greeting. Very "Hello World".
 </li>
-<li>
-* wildcard
-another "hello world" endpoint
+<li>* wildcard
+  another "hello world" endpoint
 </li>
 </ul>
+
 </div>
 
 </div>
 
 <div id="outline-container-3" class="outline-2">
-<h2 id="sec-3"><span class="section-number-2">3</span> Tech </h2>
+<h2 id="sec-3"><span class="section-number-2">3</span> Tech</h2>
 <div class="outline-text-2" id="text-3">
 
 
@@ -134,15 +173,34 @@ another "hello world" endpoint
 I started by following the Heroku Java quickstart guide. That explains how to write a simple Java
 application that uses Jetty to handle http traffic. I then wrote a few servlets to experiment with.
 The whole thing is built and managed by Maven. It's been great so far!
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-4" class="outline-2">
+<h2 id="sec-4"><span class="section-number-2">4</span> Problems</h2>
+<div class="outline-text-2" id="text-4">
+
+
+<p>
+I am running into a lot of problems with `foreman`. It is not stopping the server correctly.
+Java still runs in the background and stays attached to the port. I always have to kill
+the process or be lazy and assign a new port then go back and kill a bunch of Java processes
+later.
+</p>
+<p>
+A workaround is to use `honcho` and that seems to take care of things.
 </p></div>
 </div>
-<div id="postamble">
-<p class="author"> Author: 
-<a href="mailto:nick@dualscar.com">&lt;nick@dualscar.com&gt;</a>
-</p>
-<p class="date"> Date: 2014-02-25 04:37:14 UTC</p>
-<p class="creator">HTML generated by org-mode 6.33x in emacs 23</p>
 </div>
+
+<div id="postamble">
+<p class="date">Date: 2014-05-14T17:38-0700</p>
+<p class="author">Author: Nicholas Funnell</p>
+<p class="creator"><a href="http://orgmode.org">Org</a> version 7.9.3f with <a href="http://www.gnu.org/software/emacs/">Emacs</a> version 24</p>
+<a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>
+
 </div>
 </body>
 </html>
